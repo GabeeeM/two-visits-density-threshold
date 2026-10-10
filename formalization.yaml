@@ -1,0 +1,129 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "2-Visits: the lower density threshold is exactly 1"
+  description: >-
+    2-Visits is the finite two-visit version of pinwheel scheduling: given positive integer
+    deadlines d_1, ..., d_n, find a sequence of length 2n in which each task i occurs exactly
+    twice, first within the first d_i positions and then at most d_i positions after its first
+    occurrence. We prove that every 2-Visits instance with density sum 1/d_i at most 1 admits a
+    schedule, and that for every epsilon > 0 some instance with density in (1, 1 + epsilon) admits
+    none. Hence the lower density threshold of 2-Visits is exactly 1, answering the question in
+    Section 8 of Kanellopoulos, Mitropoulos, Pergaminelis and Tolias (arXiv:2604.16030, ICALP 2026),
+    who proved the threshold lies in [sqrt(2) - 1/2, 1] and asked whether sqrt(2) - 1/2 is tight.
+    The proof is constructive: an offset generalisation proved by strong induction, a split of
+    reducible instances, a core / chunked-rotation block construction for irreducible ones, and a
+    final matching via Hall's theorem.
+  authors: ["Gabriel Mack"]
+  responsible_maintainers: ["Gabriel Mack"]
+  license: "Apache-2.0"
+
+sources:
+  - title: "Every 2-Visits instance with density at most 1 is schedulable (lower density threshold of 2-Visits is exactly 1)"
+    type: "original-proof"
+    relationship: "other"
+    note: >-
+      First presentation of this result. The proof was found by an AI research agent (see
+      automation) and is presented here for the first time; the informal account is PROOF.md.
+  - title: "Hardness, Tractability and Density Thresholds of finite Pinwheel Scheduling Variants"
+    authors: ["Sotiris Kanellopoulos", "Giorgos Mitropoulos", "Christos Pergaminelis", "Thanos Tolias"]
+    id: "arXiv:2604.16030 (v6); ICALP 2026, LIPIcs.ICALP.2026.122"
+    type: "paper"
+    location: "Definitions 2-3, Theorems 10-11, Section 8 (open question on tightness of sqrt(2) - 1/2)"
+    relationship: "background"
+    note: >-
+      Poses the question answered here and proves the bounds [sqrt(2) - 1/2, 1]. IsSchedule is its
+      Definition 2 with k = 2. The sharpness half (density just above 1 can be unschedulable)
+      follows from its 1-Visit discussion and is reproved directly. The proof here does not
+      formalize or reuse its Lemma 9 argument.
+    author_endorsement: "not-contacted"
+  - title: "Finite Pinwheel Scheduling: the k-Visits Problem"
+    authors: ["Sotiris Kanellopoulos", "Christos Pergaminelis", "Maria Kokkou", "Euripides Markou", "Aris Pagourtzis"]
+    id: "arXiv:2507.11681; SODA 2026"
+    type: "paper"
+    relationship: "background"
+    note: "Introduces k-Visits and 2-Visits."
+    author_endorsement: "not-contacted"
+  - title: "Finite Pinwheel Covering"
+    authors: ["Sotiris Kanellopoulos"]
+    id: "arXiv:2607.28574"
+    type: "paper"
+    relationship: "background"
+    note: "Later survey of the area; still describes the sqrt(2) - 1/2 bound as apparently not tight."
+    author_endorsement: "not-contacted"
+
+related_formalizations: []
+
+classification:
+  arxiv: ["cs.DS", "math.CO", "cs.DM"]
+  msc2020: ["90B35", "68W40", "05C70"]
+
+status:
+  scope: "Complete: both halves of the density-threshold statement are proved."
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "TwoVisits.two_visits_density_threshold"
+      file: "Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "autonomous"
+      models: ["claude-opus-5-5"]
+      framework: "Claude Code"
+      tool_setup: >-
+        A shell orchestrator runs Claude Code sessions back to back with a fixed prompt: choose an
+        open conjecture with a practical use, check it is still open (literature and Palomar),
+        explore in Julia, and verify the final result in Lean 4 with Mathlib (no sorry, only
+        propext / Classical.choice / Quot.sound). The session that produced this result chose the
+        problem, ran the Julia experiments, found the construction, and wrote the Lean proof.
+      cost:
+        wall_time: "about 8 hours for the producing session"
+        hardware: "API model; a local workstation CPU for Julia and Lean"
+      prompting_notes: >-
+        The operator did not suggest the problem, the proof idea or any Lean code; the operator
+        told the session mid-run to stay on this problem rather than switch to another.
+    - method: "agent"
+      models: ["claude-opus-5-5"]
+      framework: "Claude Code"
+      tool_setup: >-
+        A separate session ported the proof to this repository (Lean v4.35.0-rc4, module system,
+        Challenge/Solution split) and performed the independent check described under review.
+  spend_usd: "subscription-based usage"
+  notes: "The human operator (Gabriel Mack) is not a mathematician and did not write the mathematics."
+
+fidelity:
+  divergences: >-
+    Positions are 0-indexed in Lean (position p is the paper's position p+1). Deadlines are
+    arbitrary positive naturals (the paper's Remark 1 assumption d_i <= 2n is not needed).
+    Density is computed in the rationals.
+
+review:
+  status: "agent-reviewed"
+  reviewers: ["Independent Claude Code session (Claude Opus 5.5), distinct from the producing session"]
+  notes: >-
+    The reviewing session recompiled the proof, scanned it for sorry, native_decide and custom
+    axioms, checked #print axioms, and proved in Lean that the theorem yields a schedule under an
+    independently written 1-indexed restatement of Definition 2 of arXiv:2604.16030. No human
+    mathematician has reviewed the proof.
+
+alignment:
+  namespace: "TwoVisits"
+  statements:
+    - source: "arXiv:2604.16030, Definition 2 (k = 2)"
+      lean: "TwoVisits.IsSchedule"
+      module: "Challenge"
+      status: "proved"
+      note: "Definition, stated identically in Challenge and Solution."
+    - source: "arXiv:2604.16030, Section 8 question (lower density threshold of 2-Visits is exactly 1)"
+      lean: "TwoVisits.two_visits_density_threshold"
+      module: "Solution"
+      status: "proved"
+
+acknowledgements: "Mathlib, Lean, Comparator, Palomar."

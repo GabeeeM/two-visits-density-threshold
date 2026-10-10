@@ -1,0 +1,21 @@
+1) exhaustive check of the constructive proof, all sorted deadline vectors with density ≤ 1 (deadlines ≤ 2n+1)
+   n=1 instances=3 invalid=0
+   n=2 instances=10 invalid=0
+   n=3 instances=47 invalid=0
+   n=4 instances=223 invalid=0
+   n=5 instances=1099 invalid=0
+   n=6 instances=5651 invalid=0
+   n=7 instances=29897 invalid=0
+   n=8 instances=160565 invalid=0
+   n=9 instances=873079 invalid=0
+   n=10 instances=4792084 invalid=0
+   total=5862658
+2) random instances with density ≤ 1, n ≤ 60 (1,000,000 seeds)
+   instances=593204 invalid=0
+3) the earlier unit-cycle block fails but chunk block works: c=6, g=[20^3,30^21]
+   unit-cycle slot condition D_j+δ_j+j ≤ K: false
+   chunk block valid: true
+4) sharpness: k+1 copies of k are unschedulable (brute force, k=1..3); density (k+1)/k
+   k=1 density=2.0 schedulable=false
+   k=2 density=1.5 schedulable=false
+   k=3 density=1.3333333333333333 schedulable=false
