@@ -18,7 +18,7 @@ open Finset
 
 namespace TwoVisits
 
-/-! ### from A_defs.lean -/
+/-! ### Definitions and the schedule from a pair assignment -/
 /-- Definition 2 of Kanellopoulos–Mitropoulos–Pergaminelis–Tolias (k = 2).
 A schedule of length `2n` is `s : Fin (2*n) → Fin n` (position `p : Fin (2n)` is the
 1-indexed position `p+1`).  Every task `i` occurs exactly twice, at positions `p < q`;
@@ -136,7 +136,7 @@ theorem not_schedulable_const (k : ℕ) :
   have := card_le_card_of_injOn _ hmaps hinj
   simp at this
 
-/-! ### from B_hall.lean -/
+/-! ### Hall matching -/
 /-- Threshold-dominance implies an assignment (Hall's theorem). -/
 theorem assign (n : ℕ) (r e : ℕ → ℤ)
     (h : ∀ θ : ℤ, ((range n).filter (fun i => θ ≤ r i)).card ≤
@@ -223,7 +223,7 @@ theorem block_of_perm (n c : ℕ) (g : ℕ → ℕ) (π : ℕ → ℕ)
     have := hπinj _ (hsl k hk).1 _ (hsl l hl).1 hkl
     rw [← (hsl k hk).2, ← (hsl l hl).2, this]
 
-/-! ### from C_chunk.lean -/
+/-! ### Chunked rotations -/
 /-- Chunked rotations.  Deficits `δ 0 ≥ δ 1 ≥ … ≥ δ (d-1)` are grouped into consecutive chunks of
 size `E` (last one possibly smaller); a chunk with leader `q = δ(first)` and `m` deficits occupies
 `q + m` slots: `q` partner slots shifted forward by `m`, then the `m` deficit slots shifted back by `q`.
@@ -364,7 +364,7 @@ theorem chunk (E : ℕ) (hE : 1 ≤ E) : ∀ (d : ℕ) (δ : ℕ → ℕ), (∀ 
       rw [e1, e2]; rw [e3] at hW
       omega
 
-/-! ### from D_T.lean -/
+/-! ### Slot inequality -/
 theorem tangent (x T : ℚ) (hx : 0 < x) (hT : 0 < T) : 2 / T - x / T ^ 2 ≤ 1 / x := by
   have h : 1 / x - (2 / T - x / T ^ 2) = (x - T) ^ 2 / (x * T ^ 2) := by
     field_simp; ring
@@ -477,7 +477,7 @@ theorem Tlemma (n c J : ℕ) (u : ℕ → ℚ) (hc : 1 ≤ c) (hJ : 1 ≤ J) (hn
         linarith
     linarith
 
-/-! ### from D_Z.lean -/
+/-! ### Partner-dominance inequality -/
 /-- Partner-dominance core inequality (rational form). -/
 theorem Zlemma (n c t d p Zb Δ δ0 H : ℚ) (hn : 0 < n) (hc : 1 ≤ c) (ht : 0 ≤ t) (htc : 2 * t + 1 ≤ c)
     (hd : 0 ≤ d) (hΔ : 0 ≤ Δ) (hδ0 : 0 ≤ δ0) (hpd : d ≤ p)
@@ -532,7 +532,7 @@ theorem Zlemma (n c t d p Zb Δ δ0 H : ℚ) (hn : 0 < n) (hc : 1 ≤ c) (ht : 0
   have h5 : M * (p + Zb) ≤ M * (n - c + t) := by nlinarith
   exact le_of_mul_le_mul_left h5 hMpos
 
-/-! ### from D_core.lean -/
+/-! ### Core inequality -/
 theorem chord (x x0 C D : ℚ) (hD : 0 ≤ D) (h0 : D < x0) (hx0 : x0 ≤ x) (hxC : x ≤ C) :
     1 / (x - D) ≤ (x0 * C / x - D) / ((x0 - D) * (C - D)) := by
   have hxD : 0 < x - D := by linarith
