@@ -12,7 +12,7 @@ deadlines `d₁, …, dₙ`, is there a sequence of length `2n` in which every t
 twice, its first occurrence among the first `dᵢ` positions and its second occurrence at most `dᵢ`
 positions after the first? (Definition 2 of arXiv:2604.16030 with `k = 2`.)
 
-The *density* of an instance is `∑ᵢ 1/dᵢ`. Theorem 11 of arXiv:2604.16030 shows that the lower
+The *density* of an instance is `∑ᵢ 1/dᵢ`. By Theorems 10 and 11 of arXiv:2604.16030, the lower
 density threshold of 2-Visits (the largest `δ` such that every instance of density `≤ δ` is
 schedulable) lies in `[√2 − 1/2, 1]`, and its Section 8 asks whether the lower bound is tight,
 remarking that "it is possible that the lower density threshold of 2-Visits is exactly 1".

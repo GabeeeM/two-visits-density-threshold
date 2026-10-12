@@ -37,21 +37,21 @@ sources:
       Definition 2 with k = 2. The sharpness half (density just above 1 can be unschedulable)
       follows from its 1-Visit discussion and is reproved directly. The proof here does not
       formalize or reuse its Lemma 9 argument.
-    author_endorsement: "not-contacted"
+    author_endorsement: "other"
   - title: "Finite Pinwheel Scheduling: the k-Visits Problem"
     authors: ["Sotiris Kanellopoulos", "Christos Pergaminelis", "Maria Kokkou", "Euripides Markou", "Aris Pagourtzis"]
     id: "arXiv:2507.11681; SODA 2026"
     type: "paper"
     relationship: "background"
     note: "Introduces k-Visits and 2-Visits."
-    author_endorsement: "not-contacted"
+    author_endorsement: "other"
   - title: "Finite Pinwheel Covering"
     authors: ["Sotiris Kanellopoulos"]
     id: "arXiv:2607.28574"
     type: "paper"
     relationship: "background"
-    note: "Later survey of the area; still describes the sqrt(2) - 1/2 bound as apparently not tight."
-    author_endorsement: "not-contacted"
+    note: "Later paper by the same author on k-Visits Covering; it still says the sqrt(2) - 1/2 bound for 2-Visits Packing does not seem to be tight."
+    author_endorsement: "other"
 
 related_formalizations: []
 
@@ -127,3 +127,5 @@ alignment:
       status: "proved"
 
 acknowledgements: "Mathlib, Lean, Comparator, Palomar."
+# Endorsement "other": the authors of arXiv:2604.16030 (including Kanellopoulos and Pergaminelis, who also
+# co-authored arXiv:2507.11681 and arXiv:2607.28574) were sent this result by email on 2026-10-11; no reply yet.

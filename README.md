@@ -49,7 +49,7 @@ lake build
 to check `Solution.lean` against `Challenge.lean`.
 
 `reproduce.jl` (Julia, standard library only) implements the construction and checks it on all
-5,862,658 sorted instances of density ≤ 1 with `n ≤ 10` and on 593,204 random instances with
+5,862,658 sorted instances of density ≤ 1 with `n ≤ 10` (deadlines ≤ `2n + 1`) and on 593,204 random instances with
 `n ≤ 60`; its output is in `output.txt`. This is a sanity check only; the Lean proof is the
 evidence.
 
