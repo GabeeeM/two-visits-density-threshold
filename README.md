@@ -51,20 +51,9 @@ to check `Solution.lean` against `Challenge.lean`.
 `n ≤ 60`; its output is in `output.txt`. This is a sanity check only; the Lean proof is the
 evidence.
 
-## How this was produced
+## How it was found
 
-The result, the proof and the Lean formalization were produced by an AI research agent
-(Claude Opus 5.5, run through Claude Code in an automated loop that searches for open problems,
-explores in Julia and verifies in Lean), operated by Gabriel Mack. A second, independent Claude
-session re-checked the formalization: it recompiled the proof, scanned it for `sorry`,
-`native_decide` and custom axioms, and proved in Lean that the theorem yields a schedule under an
-independently written restatement of Definition 2 (1-indexed positions, no use of the project's
-definitions). No human mathematician has reviewed the proof yet.
-
-Novelty: as of 2026-10-11, a search of arXiv, the papers citing arXiv:2604.16030 (including
-*Finite Pinwheel Covering*, arXiv:2607.28574, which still describes the `√2 − 1/2` bound as
-apparently not tight) and the Palomar registry found no prior resolution. The authors of
-arXiv:2604.16030 have not yet been contacted.
+A Claude loop exploring open problems from recent math papers.
 
 ## Licence
 
