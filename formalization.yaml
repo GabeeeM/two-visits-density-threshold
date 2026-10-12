@@ -12,7 +12,7 @@ project:
     none. Hence the lower density threshold of 2-Visits is exactly 1, answering the question in
     Section 8 of Kanellopoulos, Mitropoulos, Pergaminelis and Tolias (arXiv:2604.16030, ICALP 2026),
     who proved the threshold lies in [sqrt(2) - 1/2, 1] and asked whether sqrt(2) - 1/2 is tight.
-    The proof is constructive: an offset generalisation proved by strong induction, a split of
+    The proof follows an explicit construction: an offset generalisation proved by strong induction, a split of
     reducible instances, a core / chunked-rotation block construction for irreducible ones, and a
     final matching via Hall's theorem.
   authors: ["Gabriel Mack"]

@@ -18,7 +18,7 @@ sequence of length `2n` in which every task `i` appears exactly twice: the first
 first `dᵢ` positions, the second time at most `dᵢ` positions after the first.
 
 The **density** of an instance is `∑ 1/dᵢ`. Deciding schedulability is strongly NP-complete
-(arXiv:2604.16030), so density thresholds give a simple sufficient test. Theorem 11 of
+(Kanellopoulos et al., SODA 2026; strengthened in arXiv:2604.16030), so density thresholds give a simple sufficient test. Theorem 11 of
 arXiv:2604.16030 shows that every instance of density at most `√2 − 1/2 ≈ 0.9142` is schedulable,
 and the paper notes (via its Theorem 10) that the threshold is at most `1`; Section 8 asks whether `√2 − 1/2` is tight and remarks that
 "it is possible that the lower density threshold of 2-Visits is exactly 1".
@@ -32,8 +32,9 @@ and the paper notes (via its Theorem 10) that the threshold is at most `1`; Sect
    (`k + 1` tasks of deadline `k`), so `1` is best possible.
 
 So the lower density threshold of 2-Visits is exactly `1`. The schedule definition `IsSchedule`
-is Definition 2 of arXiv:2604.16030 with `k = 2`, using 0-indexed positions. The proof is
-constructive (split / core / chunked rotation block / Hall matching); an informal account is in
+is Definition 2 of arXiv:2604.16030 with `k = 2`, using 0-indexed positions. The proof
+follows an explicit construction (split / core / chunked rotation block), finished by a matching
+argument via Hall's theorem; an informal account is in
 [`PROOF.md`](PROOF.md).
 
 ## Checking
