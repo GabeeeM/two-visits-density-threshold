@@ -19,8 +19,8 @@ first `dᵢ` positions, the second time at most `dᵢ` positions after the first
 
 The **density** of an instance is `∑ 1/dᵢ`. Deciding schedulability is strongly NP-complete
 (arXiv:2604.16030), so density thresholds give a simple sufficient test. Theorem 11 of
-arXiv:2604.16030 shows that every instance of density at most `√2 − 1/2 ≈ 0.9142` is schedulable
-and that the threshold is at most `1`; Section 8 asks whether `√2 − 1/2` is tight and remarks that
+arXiv:2604.16030 shows that every instance of density at most `√2 − 1/2 ≈ 0.9142` is schedulable,
+and the paper notes (via its Theorem 10) that the threshold is at most `1`; Section 8 asks whether `√2 − 1/2` is tight and remarks that
 "it is possible that the lower density threshold of 2-Visits is exactly 1".
 
 ## The result
