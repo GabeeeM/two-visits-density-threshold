@@ -1,5 +1,7 @@
 # 2-Visits: the lower density threshold is exactly 1
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23309436.svg)](https://doi.org/10.5281/zenodo.23309436)
+
 A Lean 4 / Mathlib proof that **every 2-Visits instance with density at most 1 is schedulable**,
 which settles the open question in Section 8 of
 
