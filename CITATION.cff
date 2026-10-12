@@ -3,9 +3,10 @@ message: "If you use this result, please cite it as below."
 title: "The 2-Visits density threshold is exactly 1 (Lean-verified)"
 authors:
   - family-names: Mack
-    given-names: Gabriel
+    given-names: Gabriel Alan
     orcid: "https://orcid.org/0009-0008-7111-6779"
-date-released: 2026-10-11
+doi: "10.5281/zenodo.23309435"
+date-released: 2026-10-12
 repository-code: "https://github.com/GabeeeM/two-visits-density-threshold"
 license: Apache-2.0
 type: software

@@ -15,8 +15,8 @@ project:
     The proof follows an explicit construction: an offset generalisation proved by strong induction, a split of
     reducible instances, a core / chunked-rotation block construction for irreducible ones, and a
     final matching via Hall's theorem.
-  authors: ["Gabriel Mack"]
-  responsible_maintainers: ["Gabriel Mack"]
+  authors: ["Gabriel Alan Mack"]
+  responsible_maintainers: ["Gabriel Alan Mack"]
   license: "Apache-2.0"
 
 sources:
